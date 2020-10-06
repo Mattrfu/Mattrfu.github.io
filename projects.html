@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="1st-year Undergraduate at Harvard">
     <meta name="author" content="Matt Fu">
-    <link rel="icon" href="favicon.ico" type="image">
+    <link rel="icon" href="../../Desktop/Mattrfu.github.io-master/favicon.ico" type="image">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -18,7 +18,7 @@
   </head>
   </body>
     <div class="px-5 py-1 pt-md-5 mx-auto text-center">
-      <img src="Website.jpg" class="img-circle" alt="MattFu" width="200" height="200">
+      <img src="../../Desktop/Mattrfu.github.io-master/Website.jpg" class="img-circle" alt="MattFu" width="200" height="200">
       <h1 class="display-3">Matt Fu</h1>
       <p class="display-4">Undergraduate at Harvard</p>
     </div>
@@ -34,11 +34,11 @@
             <li class="nav-item">
               <a class="nav-link" href="https://mattfu.org/research.html">RESEARCH</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://mattfu.org/publications.html">PUBLICATIONS</a>
-            </li>
             <li class="nav-item active">
               <a class="nav-link" href="https://mattfu.org/projects.html">PROJECTS<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://mattfu.org/publications.html">PUBLICATIONS</a>
             </li>
             <!--<li class="nav-item">-->
             <!--  <a class="nav-link" href="https://mattrfu.github.io/photography.html">PHOTOGRAPHY</a>-->
@@ -69,16 +69,310 @@
           <h2>PROJECTS</h2>
         </div>
         <div class="px-5 pt-md-4 mx-auto">
-          <h4>Short Story Recommender</h3>
-          <p>I created a short story recommender that used unsupervised clustering based on user comments and like patterns to generate story recommendations. The user comments and like patterns were scraped.</p>
+          <h4>Story Recommender</h4>
+            <p>I created a fanfiction story recommender that used unsupervised clustering based on user comments and like patterns to generate story recommendations. The user comments and like patterns were scraped.</p>
+            <p>
+              <button class="btn btn-light btn-lg" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                Story Recommender Additional Information
+              </button>
+            </p>
+            <div class="collapse" id="collapseOne">
+              <div class="card card-body">
+                <h5>How I created this project</h5>
+                <p>
+                  My story recommender is built using python. In particular, I use both a minimum spanning tree and unsupervised clustering to create my recommendations.
+                </p>
+                <p>
+                  I gathered the data for the difference matrix by scraping off fanfiction.net. I used both beautiful soup to scrape data myself as well as a fanfiction api -- not created by fanfiction.net -- to gather other data.
+                </p>
+                <p>
+                  I only scraped a total of 800 stories for this project. In part, fanfiction.net does not work well with scraping due to the way the website is created. Thus, additional scraping didn't feel efficient or worth it.
+                </p>
+                <h5>The unsupervised clustering and minimum spanning tree</h5>
+                <p>
+                  Here is the visualization of the unsupervised clustering and minimum spanning three. We see the three different linkages that I considered for the hierarchical clustering. Furthermore, the bottom right corner represents a
+                  visualization of the minimum spanning tree. It should be noted that the clustering shown only shows a random sample of 100 of the total stories sampled. As the number increases, the dendrogram becomes harder to understand. Thus, the final clustering is not exactly this image.
+                </p>
+                <img src="../../Desktop/Mattrfu.github.io-master/AllGraphs.jpg" class="img-fluid" alt="Responsive image">
+                <p></p>
+                <h5>Story recommendation examples</h5>
+                <p>
+                  Here are two examples of recommendations I recieved based on two stories I threw in. The first was a random story from the dataset, and the second was a well known story. I am going to use only Harry Potter Fanfiction for these examples.
+                </p>
+                <h6>Story 1: A Marriage Most Convenient by AnneM.Oliver</h6>
+                <p>
+                  In the first example, I inputted a random Harry Potter fanfiction called A Marriage Most Convenient.
+                  It was selected at random from among my dataset. In turn, I got out the following stories: Revenge is All The Sweeter by Twilight to Midnight, Simply Irresistible by bookworm1993, A Wonderful Caricature of Intimacy by Countess Abe, Draco and Hermione by Jiigglypuff
+                </p>
+                <p>
+                  In particular, the last story is very aptly named for this set of stories. In every one, a relationship between Hermione and Draco is featured. While the mode for the development of their relationship may be different, they all feature the same romantic outcome.
+                  Here, I think the recommendation has a solid success. While the stories are not necessarily completely related -- they are all based on a separate premise --, they all share major similarities.
+                  All four outputs relate to the input, and all five are themselves related to each other.
+                  In part, this may be because the stories are less popular on regular commendation sites -- like reddit -- resulting in less overlap between different stories.
+                </p>
+                <p>
+                  Descriptions as well as links to stories are below.
+                </p>
+                <h6>Story 2: Harry Potter and the Boy Who Lived by The Santi</h6>
+                <p>
+                  In the second example, I inputted a well known harry potter fanfiction called Harry Potter and the Boy Who Lived by The Santi.
+                  In turn, I got out out the following stories: Dark Lord Potter Part 1 by The Santi, On the Way to Greatness by Mira Mirth, Harry Potter and the Quantum Leap by Seel'vor, Manipulating Fate by Midnight Start 25.
+                </p>
+                <p>
+                  In particular, these stories show that not all stories recommended for a single input will all be related. DLP Part 1 is similar to the original in large part due to similar authors. On the way to greatness has relation in terms of following the "different hosue trope," in which Harry is sorted into a differen thouse.
+                  HP and the Quantum Leap shares a knack for "discovery" with HP and the Boy who lived. Both stories have harry "discover" major things that change the course of the story. Manipulating Fate is similar in this regard.
+                  Altogether, all four recommended stories are well related to HP and the Boy who Lived, but they are not necessarily extremely related themselves.
+                </p>
+                <p>
+                  Here are some more descriptions of the various stories as well as links.
+                </p>
+                <div id="accordion">
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h5 class="mb-0">
+                        <button class="btn btn-info" data-toggle="collapse" data-target="#collapseOne*" aria-expanded="true" aria-controls="collapseOne*">
+                          A Marriage Most Convenient by AnneM.Oliver
+                        </button>
+                      </h5>
+                    </div>
+
+                    <div id="collapseOne*" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                      <div class="card-body">
+                        <p>
+                          Description: Hermione lost it all when she divorced. Draco would lose it all by age 30 if he didn't marry. Marriage to each other would be perfect, one would even say it was most convenient. Her daughter even looked like him, although, he wondered why that was.
+                        </p>
+                        <p>
+                          Relationships: Hermione/Draco
+                        </p>
+                        <a href="https://www.fanfiction.net/s/5458618">Link</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card">
+                    <div class="card-header" id="headingSeven">
+                      <h5 class="mb-0">
+                        <button class="btn btn-info collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                          Revenge Is All The Sweeter by Twilight to Midnight
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
+                      <div class="card-body">
+                        <p>
+                          Description: A marriage law has come to pass; an unfaithful boyfriend has been caught and an enemy has been chosen. Draco and Hermione discover the fine line between love and hate. Won 2nd place at the Dramione awards for best Draco and best action/adventure!
+                        </p>
+                        <p>
+                          Relationships: Hermione/Draco
+                        </p>
+                        <a href="https://www.fanfiction.net/s/4122903">Link</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="headingEight">
+                      <h5 class="mb-0">
+                        <button class="btn btn-info collapsed" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                          Simply Irresistible by bookworm1993
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
+                      <div class="card-body">
+                        <p>
+                          Description: Draco gave a cocky grin. "I am going to give you a makeover." "I'm sorry what?" "You heard me Granger, I'm going to give you a makeover that will make every man want you,and make Weasley die of regret. You will be simply irresistible."
+                        </p>
+                        <p>
+                          Relationships: Hermione/Draco
+                        </p>
+                        <a href="https://www.fanfiction.net/s/5498748">Link</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card">
+                    <div class="card-header" id="headingNine">
+                      <h5 class="mb-0">
+                        <button class="btn btn-info collapsed" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                          A Wonderful Caricature of Intimacy by Countess of Abe
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordion">
+                      <div class="card-body">
+                        <p>
+                          Description: Draco loves his son more than anything in the world. So, when his ex-wife plans to take his son away, Draco asks the most unlikely person for help. Hermione must decide whether changing her entire life is worth helping the man she hates unconditionally.
+                        </p>
+                        <p>
+                          Relationships: Hermione/Draco
+                        </p>
+                        <a href="https://www.fanfiction.net/s/3878384">Link</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card">
+                    <div class="card-header" id="headingTen">
+                      <h5 class="mb-0">
+                        <button class="btn btn-info collapsed" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                          Draco and Hermione by Jiigglypuff
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordion">
+                      <div class="card-body">
+                        <p>
+                          Description: After Hermione is captured and taken to Malfoy Manor, she escapes with an imprisoned Draco despite their differences. They must work together to end the war, return to Hogwarts as eighth year students, unite the four Houses and become Professors - all while slowly falling in love in the process. DMHG.
+                        </p>
+                        <p>
+                          Relationships: Hermione/Draco
+                        </p>
+                        <a href="https://www.fanfiction.net/s/5661111">Link</a>
+                      </div>
+                    </div>
+                  </div>
+                  <p></p>
+
+                  <div class="card">
+                    <div class="card-header" id="headingSix">
+                      <h5 class="mb-0">
+                        <button class="btn btn-info collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                          Harry Potter and the Boy Who Lived by The Santi
+                        </button>
+                      </h5>
+                    </div>
+                  </div>
+                  <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+                    <div class="card-body">
+                      <p>
+                        Description: Harry Potter loves, and is loved by, his parents, his godfather, and his brother. He isn’t mistreated, abused, or neglected. So why is he a Dark Wizard? NonBWL!Harry. Not your typical Harry’s brother is the Boy Who Lived story.
+                      </p>
+                      <p>
+                        Relationships: N/A
+                      </p>
+                      <a href="https://www.fanfiction.net/s/5353809">Link</a>
+                    </div>
+                  </div>
+
+                  <div class="card">
+                    <div class="card-header" id="headingTwo">
+                      <h5 class="mb-0">
+                        <button class="btn btn-info collapsed" data-toggle="collapse" data-target="#collapseTwo*" aria-expanded="false" aria-controls="collapseTwo*">
+                          Dark Lord Potter Part 1 by The Santi
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseTwo*" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                      <div class="card-body">
+                        <p>
+                          Description: Harry Potter has never known love or even kindness until he is rescued from his relatives by a pair of witches. How will the most talented wizard of his generation respond to those who have mistreated him? AU! Young!Tonks. Early chapters are being edited.
+                        </p>
+                        <p>
+                          Relationships: Harry/Tonks
+                        </p>
+                        <a href="https://www.fanfiction.net/s/3464303">Link</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="headingThree">
+                      <h5 class="mb-0">
+                        <button class="btn btn-info collapsed" data-toggle="collapse" data-target="#collapseThree*" aria-expanded="false" aria-controls="collapseThree*">
+                          On the Way to Greatness by Mira Mirth
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseThree*" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                      <div class="card-body">
+                        <p>
+                          Description: As per the Hat's decision, Harry gets Sorted into Slytherin upon his arrival in Hogwarts—and suddenly, the future isn't what it used to be.
+                        </p>
+                        <p>
+                          Relationships: N/A
+                        </p>
+                        <a href="https://www.fanfiction.net/s/4745329">Link</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card">
+                    <div class="card-header" id="headingFour">
+                      <h5 class="mb-0">
+                        <button class="btn btn-info collapsed" data-toggle="collapse" data-target="#collapseFour*" aria-expanded="false" aria-controls="collapseFour*">
+                          Harry Potter and the Quantum Leap by Seel'vor
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseFour*" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                      <div class="card-body">
+                        <p>
+                          Description: Harry Potter won the Second Blood War and defeated his enemies... and was left with nothing. Decades later, he contributes to the creation of a revolutionary new piece of technology and destroys the future in order to rewrite his own past...
+                        </p>
+                        <p>
+                          Relationships: Harry/Hermione
+                        </p>
+                        <a href="https://www.fanfiction.net/s/3951749">Link</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card">
+                    <div class="card-header" id="headingFive">
+                      <h5 class="mb-0">
+                        <button class="btn btn-info collapsed" data-toggle="collapse" data-target="#collapseFive*" aria-expanded="false" aria-controls="collapseFive*">
+                          Manipulating Fate by Midnight Star 25
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseFive*" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                      <div class="card-body">
+                        <p>
+                          Description: Time Travel A 30 year old Harry succeeded in fulfilling the prophecy, but there's nothing left to live for. Harry executes a risky scheme, that will have him fighting against fate itself. GreyHarry Independent Powerful Harry Slight Dumbledore Bashing
+                        </p>
+                        <p>
+                          Relationships: N/A
+                        </p>
+                        <a href="https://www.fanfiction.net/s/3609074">Link</a>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <p></p>
+                <h5>Takeaways</h5>
+                <p>
+                  Fundamentally, this project has a couple of flaws.
+                </p>
+                <p>
+                  First, the decision to use only 8000 stories is certainly pragmatic, but given that there are nearly a million fanfiction stories on fanfiction.net, a very large portion of stories are left out.
+                </p>
+                <p>
+                  Second, as might be surmised with nearly 1 million stories, a lot are pretty bad. Some are certainly extremely good, but similar like and comment patterns does not necessarily result in "high quality" pieces of writing being recommended.
+                  Instead, as we note in the examples, the recommender is more likely to find stories that are more similar in topic, as opposed to being more similar in writing quality.
+                </p>
+                <p>
+                  Thus, while this project does find similar stories to some degree, it does not necessarily guarentee that you will find stories that you might enjoy.
+                </p>
+              </div>
+            </div>
+           </div>
+        <div class="px-5 pt-md-4 mx-auto">
+          <h4>Simple Attendance Tracker</h4>
+          <p>We created a simple attendance tracker for a large high school robotics team that was focused on tracking how many hours someone was working on their project. With functionality that included check-ins, check-outs, hour confirmations, deletes, history, and a roster, the project was meant to give the team the tools it needed to really find out how many hours went into every project.</p>
+<!--          <p>-->
+<!--            <button class="btn btn-light btn-lg" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">-->
+<!--              Simple Attendance Tracker Additional Information-->
+<!--            </button>-->
+<!--          </p>-->
+<!--          <div class="collapse" id="collapseTwo">-->
+<!--            <div class="card card-body">-->
+<!--              Description Work in Progress-->
+<!--            </div>-->
+<!--          </div>-->
         </div>
         <div class="px-5 pt-md-4 mx-auto">
           <h4>AP CS A and AP CS Principles Auto Grader</h4>
           <p>We made an auto-grader using the Mimir platform to allow students to submit PSET solutions for grading. Students in AP CS A and Principles could use the platform for immediate feedback and grades.</p>
-        </div>
-        <div class="px-5 pt-md-4 mx-auto">
-          <h4>Simple Attendance Tracker</h4>
-          <p>We created a simple attendance tracker for a large high school robotics team that was focused on tracking how many hours someone was working on their project. With functionality that included check-ins, check-outs, hour confirmations, deletes, history, and a roster, the project was meant to give the team the tools it needed to really find out how many hours went into every project.</p>
         </div>
       </div>
     </main>
