@@ -70,7 +70,7 @@
         </div>
         <div class="px-5 pt-md-4 mx-auto">
           <h4>Story Recommender</h4>
-          <p>I created a fanfiction story recommender that used unsupervised clustering based on user comments and like patterns to generate story recommendations. The user comments and like patterns were scraped.</p>
+          <p>Story recommender based on unsupervised clustering of comment and like patterns.</p>
           <a>
             <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
               Story Recommender Additional Information
@@ -78,26 +78,47 @@
           </a>
           <div class="collapse" id="collapseOne">
               <div class="card card-body" style="width: 100%;">
-                <h5>How I created this project</h5>
+                <h5>What I did</h5>
                 <p>
-                  My story recommender is built using python. In particular, I use both a minimum spanning tree and unsupervised clustering to create my recommendations.
+                  The story recommender is built in python. Initially, I scraped user comment and like patterns off Fanfiction.net using Beautiful Soup.
+                  I then built a difference matrix between on the 800 scraped stories. I then used hierarchical clustering via SCIPY and a minimum spanning tree to create recommendations.
+                  The Hierarchical Clustering attempted Single, Average, and Complete linkages (see below for more).
+                </p>
+                <h5>What I Learned</h5>
+                <p>
+                  1) Think through a solution before building it.
+                </p><p>
+                  This project was built over the course of many years, with small tidbits added in every couple of months.
+                  If I were to do it again, I would think more at the beginning to avoid creating large chunks of code that would eventually be unused.
                 </p>
                 <p>
-                  I gathered the data for the difference matrix by scraping off fanfiction.net. I used both beautiful soup to scrape data myself as well as a fanfiction api -- not created by fanfiction.net -- to gather other data.
+                  2) Build code that is easy to read and reuse.
                 </p>
                 <p>
-                  I only scraped a total of 800 stories for this project. In part, fanfiction.net does not work well with scraping due to the way the website is created. Thus, additional scraping didn't feel efficient or worth it.
+                  Having come back to this project multiple times, it's been really difficult to reread some of the code I had created previously.
+                  I hope I can build better code in the the future that is easier to come back to after a break.
                 </p>
+                <p>
+                  3) An ML model is only as good as what you give it.
+                </p>
+                <p>
+                  Given only like and comment patterns, it does show similar stories (see usage examples below).
+                  However, the recommendations don't keep things like quality in mind, so it doesn't necessarily guarantee that the user will "enjoy" the story.
+                </p>
+                <a href="https://github.com/Mattrfu/StoryRecommender">Link to Repository</a>
+                <p></p>
                 <h5>The unsupervised clustering and minimum spanning tree</h5>
                 <p>
-                  Here is the visualization of the unsupervised clustering and minimum spanning three. We see the three different linkages that I considered for the hierarchical clustering. Furthermore, the bottom right corner represents a
-                  visualization of the minimum spanning tree. It should be noted that the clustering shown only shows a random sample of 100 of the total stories sampled. As the number increases, the dendrogram becomes harder to understand. Thus, the final clustering is not exactly this image.
-                </p>
+                  Here is the visualization of the unsupervised clustering and minimum spanning three.
+                  There are also pictures of the single, average, and complete linkages I used in the hierarchical clustering.
+                  The bottom right is a visualization of the minimum spanning tree.
+                  Note: Only 100 stories are shown in the clustering for clarity.
+                  </p>
                 <img src="images/AllGraphs.jpg" class="img-fluid" alt="Responsive image">
                 <p></p>
-                <h5>Story recommendation examples</h5>
+                <h5>Demo Usage</h5>
                 <p>
-                  Here are two examples of recommendations I recieved based on two stories I threw in. The first was a random story from the dataset, and the second was a well known story. I am going to use only Harry Potter Fanfiction for these examples.
+                  Here are two examples of recommendations I received based on two stories I threw in. The first was a random story from the dataset, and the second was a well known story.
                 </p>
                 <h6>Story 1: A Marriage Most Convenient by AnneM.Oliver</h6>
                 <p>
@@ -106,9 +127,7 @@
                 </p>
                 <p>
                   In particular, the last story is very aptly named for this set of stories. In every one, a relationship between Hermione and Draco is featured. While the mode for the development of their relationship may be different, they all feature the same romantic outcome.
-                  Here, I think the recommendation has a solid success. While the stories are not the same, they all share major similarities.
-                  All four outputs relate to the input, and all five are themselves related to each other.
-                  In part, this may be because the stories are less popular on regular commendation sites -- like reddit -- resulting in overlap being due to native story discovery.
+                  Here, I think the recommendation has a solid success. Despite their slight differences, all four are well related to the input and to each other.
                 </p>
                 <p>
                   Descriptions as well as links to stories are below.
@@ -389,7 +408,8 @@
         <p></p>
         <div class="px-5 pt-md-4 mx-auto">
           <h4>Simple Attendance Tracker</h4>
-          <p>We created a simple attendance tracker for a large high school robotics team that was focused on tracking how many hours someone was working on their project. With functionality that included check-ins, check-outs, hour confirmations, deletes, history, and a roster, the project was meant to give the team the tools it needed to really find out how many hours went into every project.</p>
+          <p>A simple attendance tracker built for a high school robotics team based on SQL, Python, Flask, HTML, and CSS.</p>
+<!--          <p>We created a simple attendance tracker for a large high school robotics team that was focused on tracking how many hours someone was working on their project. With functionality that included check-ins, check-outs, hour confirmations, deletes, history, and a roster, the project was meant to give the team the tools it needed to really find out how many hours went into every project.</p>-->
 <!--          <p>-->
 <!--            <button class="btn btn-light btn-lg" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">-->
 <!--              Simple Attendance Tracker Additional Information-->
@@ -403,7 +423,8 @@
         </div>
         <div class="px-5 pt-md-4 mx-auto">
           <h4>AP CS A and AP CS Principles Auto Grader</h4>
-          <p>We made an auto-grader using the Mimir platform to allow students to submit PSET solutions for grading. Students in AP CS A and Principles could use the platform for immediate feedback and grades.</p>
+          <p>An auto-grader using the Mimir platform to give instantaneous feedback to high school students when submitting AP CS A and Principles PSETS</p>
+<!--          <p>We made an auto-grader using the Mimir platform to allow students to submit PSET solutions for grading. Students in AP CS A and Principles could use the platform for immediate feedback and grades.</p>-->
         </div>
       </div>
     </main>
